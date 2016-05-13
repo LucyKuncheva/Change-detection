@@ -83,12 +83,13 @@ scov = sum(SC.*repmat(ClassPriors',1,n^2),1);
 scov = reshape(scov,n,n);
 z = diag(scov);
  
-indexvarzero = z < eps;
-if isempty(indexvarzero)
-    invscov = inv(scov);
-else
-    z(indexvarzero) = min(z);
-    invscov = diag(1./z);
+indexvarzero = z < eps; % identify features with very low variability
+if ~sum(indexvarzero) % if there are no such features
+    invscov = inv(scov); % invert the covariance matrix
+else % if there are features with very low variance
+    z(indexvarzero) = min(z(~indexvarzero)); % set their variance to the 
+    % minimum variance among all other features
+    invscov = diag(1./z); % invert the diagonal matrix only
 end
  
 % Calculate the MATCH from Window 2
