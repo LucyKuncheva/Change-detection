@@ -21,6 +21,7 @@ Source: Kuncheva L.I., Change detection in streaming multivariate data using lik
 
 pdf available here: http://pages.bangor.ac.uk/~mas00a/papers/lktkde13a.pdf
 
+```
 bibtex entry:
 @ARTICLE{KunchevaTKDE13a,
 author = {Ludmila I. Kuncheva},
@@ -32,4 +33,4 @@ year = {2013},
 pages = {1175--1180},
 doi = {10.1109/TKDE.2011.226}
 }
-
+```
